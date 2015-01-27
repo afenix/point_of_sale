@@ -1,7 +1,10 @@
+ENV['RACK_ENV'] = 'test'
+require('sinatra/activerecord')
+require('sinatra')
 require('rspec')
 require('pg')
-require('sinatra/activerecord')
-require('task')
+require('pry')
+require('product')
 
 RSpec.configure do |config|
   config.after(:each) do

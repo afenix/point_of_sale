@@ -15,6 +15,6 @@
 <p>List of products and their prices:</p>
 
 <ul><% @products.each() do |product| %>
-  <li><a href="/products/<%= product.id() %>/edit"><button type="button" class="btn btn-xs btn-success">Edit</button></a>     <%= product.name() %>, $<%= product.price() %></li>
+  <li><a href="/products/<%= product.id() %>/edit"><button type="button" class="btn btn-xs btn-success">Edit</button></a> <%= product.name() %>, $<%= product.price() %></li>
   <% end %>
 </ul>

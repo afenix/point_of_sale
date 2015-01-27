@@ -1,0 +1,20 @@
+<h1> Welcome to the Amazing Point of Sale Tracker App</h1>
+
+<h3>Enter the product that you'd like to track today:</h3>
+<br>
+<form action="/products" method="post">
+  <label for="name">Product Name</label>
+  <input id="name" name="name" type="text">
+
+  <label for="price">Product price</label>
+  <input id="price" name="price" type="text">
+
+  <button type="submit">Submit</button>
+</form>
+<br>
+<p>List of products and their prices:</p>
+
+<ul><% @products.each() do |product| %>
+  <li><%= product.name() %>, $<%= product.price() %><a href="/products/<%= product.id() %>/edit">     Update</a></li>
+  <% end %>
+</ul>

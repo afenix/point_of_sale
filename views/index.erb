@@ -14,7 +14,9 @@
 <br>
 <p>List of products and their prices:</p>
 
+<form action="/products" method="post">
 <ul><% @products.each() do |product| %>
-  <li><a href="/products/<%= product.id() %>/edit"><button type="button" class="btn btn-xs btn-success">Edit</button></a> <%= product.name() %>, $<%= product.price() %></li>
+  <li><input type="checkbox" name="name" value="<%= product.price() %>"><a href="/products/<%= product.id() %>/edit"><button type="button" class="btn btn-xs btn-success">Edit</button></a> <%= product.name() %>, $<%= product.price() %></li>
   <% end %>
 </ul>
+</form>

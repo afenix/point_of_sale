@@ -5,6 +5,7 @@ require('rspec')
 require('pg')
 require('pry')
 require('product')
+require('purchase')
 
 RSpec.configure do |config|
   config.after(:each) do

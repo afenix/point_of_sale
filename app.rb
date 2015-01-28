@@ -40,3 +40,18 @@ delete("/products/:id") do
   @products = Product.all()
   erb(:index)
 end
+
+get("/products_sum/:id") do
+  @product = Product.find(params.fetch("id").to_i())
+  @purchases = Purchase.all()
+  erb(:actor_info)
+end
+
+patch('products_sum/:id') do
+  @product_id = Product.find(params.fetch("id").to_i())
+  @movie = Product.find(product_id)
+  product_ids = params.fetch("product_ids")
+  @product_total = product_ids.sum('price')
+  @products = Product.all()
+  erb(:index)
+end

@@ -1,4 +1,4 @@
-<h1> Welcome to the Amazing Point of Sale Tracker App</h1>
+<h1> Welcome to the Point of Sale Tracker App</h1>
 
 <h3>Enter the product that you'd like to track today:</h3>
 <br>
@@ -16,15 +16,18 @@
 
 
 <% if @products.any?() %>
-<form action="/product_sum/" method="post">
-  <input type="hidden" name="_method" value="patch"
-    <div class="checkbox">
-      <% @products.each() do |product| %>
-        <label>
-          <input type="checkbox" name="product_ids[]" value="<%= product.id() %>"><a href="/products/<%= product.id() %>/edit"><button type="button" class="btn btn-xs btn-success">Edit</button></a> <%= product.name() %>, $<%= product.price() %>
-        </label>
+  <form action="/products_sum" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <% @products.each() do |product| %>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="product_ids[]" value="<%= product.id() %>"><a href="/products/<%= product.id() %>/edit"><button type="button" class="btn btn-xs btn-success">Edit</button></a> <%= product.name() %>, $<%= product.price() %>
+          </label>
+        </div>
       <% end %>
-    </div>
-        <button type="submit">Total</button>
+
+      <button type="submit">Total</button>
   </form>
 <% end %>
+
+<h4>The grand total for the above products will be <%= @product_total %> </h4>

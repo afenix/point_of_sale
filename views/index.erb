@@ -14,9 +14,17 @@
 <br>
 <p>List of products and their prices:</p>
 
-<form action="/products" method="post">
-<ul><% @products.each() do |product| %>
-  <li><input type="checkbox" name="name" value="<%= product.price() %>"><a href="/products/<%= product.id() %>/edit"><button type="button" class="btn btn-xs btn-success">Edit</button></a> <%= product.name() %>, $<%= product.price() %></li>
-  <% end %>
-</ul>
-</form>
+
+<% if @products.any?() %>
+<form action="/product_sum/" method="post">
+  <input type="hidden" name="_method" value="patch"
+    <div class="checkbox">
+      <% @products.each() do |product| %>
+        <label>
+          <input type="checkbox" name="product_ids[]" value="<%= product.id() %>"><a href="/products/<%= product.id() %>/edit"><button type="button" class="btn btn-xs btn-success">Edit</button></a> <%= product.name() %>, $<%= product.price() %>
+        </label>
+      <% end %>
+    </div>
+        <button type="submit">Total</button>
+  </form>
+<% end %>
